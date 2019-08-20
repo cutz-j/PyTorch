@@ -70,7 +70,7 @@ class IMDBDataset(Dataset):
     def __getitem__(self, idx):
         label, f = self.labeled_files[idx]
         # 파일의 텍스트 데이터를 읽어서 소문자로 변환
-        data = open(f).read().lower()
+        data = open(f, encoding='utf8').read().lower()
         # 텍스트 데이터를 ID 리스트로 변환
         data = text2ids(data, self.vocab_dict)
         # ID 리스트를 Tensor로 변환
